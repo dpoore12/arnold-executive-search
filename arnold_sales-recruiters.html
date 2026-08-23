@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sales Recruiters — Arnold Executive Search</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #14213d;
+    --navy-deep: #0c1526;
+    --bronze: #a9762f;
+    --bronze-light: #c9924a;
+    --paper: #faf6ef;
+    --paper-warm: #f2ead9;
+    --ink: #201c14;
+    --ink-soft: #4a4438;
+    --rule: #ddd2b8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Sans 3', sans-serif;
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  h1, h2, h3, .serif {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    color: var(--navy);
+    letter-spacing: 0.2px;
+  }
+  a { color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--bronze-light); }
+  a:hover { color: var(--bronze); }
+
+  .topbar {
+    background: var(--navy-deep);
+    color: #e9e2cf;
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+  }
+  .monogram {
+    width: 34px; height: 34px;
+    border: 1.5px solid var(--bronze-light);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    color: var(--bronze-light);
+    font-size: 15px;
+    margin-right: 10px;
+  }
+  .brand { display: flex; align-items: center; color: #f5efe0; font-size: 15px; letter-spacing: 0.5px;}
+  .topnav a { color: #cfc4a3; border-bottom: none; margin-left: 24px; font-size: 14px; }
+  .topnav a:hover { color: var(--bronze-light); }
+
+  .breadcrumb {
+    max-width: 860px; margin: 22px auto 0; padding: 0 24px;
+    font-size: 13px; color: var(--ink-soft);
+  }
+  .breadcrumb a { border-bottom: none; color: var(--ink-soft); }
+  .breadcrumb a:hover { color: var(--bronze); }
+
+  .hero {
+    max-width: 860px; margin: 0 auto; padding: 28px 24px 36px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero h1 { font-size: 42px; margin: 0 0 12px; line-height: 1.15; }
+  .hero .subhead {
+    font-size: 19px; color: var(--ink-soft); margin: 0 0 22px; max-width: 640px;
+  }
+  .direct-answer {
+    background: var(--paper-warm);
+    border-left: 3px solid var(--bronze);
+    padding: 18px 22px;
+    font-size: 16.5px;
+    color: var(--ink);
+    border-radius: 2px;
+  }
+  .badges { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge {
+    font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.6px;
+    color: var(--navy); border: 1px solid var(--bronze-light);
+    padding: 5px 11px; border-radius: 20px; background: #fff;
+  }
+
+  .author-strip {
+    display: flex; align-items: center; gap: 14px;
+    margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--rule);
+  }
+  .author-photo {
+    width: 56px; height: 56px; border-radius: 50%;
+    object-fit: cover; border: 2px solid var(--bronze-light);
+  }
+  .author-name { font-weight: 700; color: var(--navy); font-size: 15.5px; }
+  .author-title { color: var(--ink-soft); font-size: 13.5px; }
+
+  main { max-width: 860px; margin: 0 auto; padding: 8px 24px 20px; }
+  section { padding: 34px 0; border-bottom: 1px solid var(--rule); }
+  section:last-of-type { border-bottom: none; }
+  h2 { font-size: 27px; margin: 0 0 16px; }
+  h3 { font-size: 19px; margin: 22px 0 8px; color: var(--ink); font-family: 'Source Sans 3', sans-serif; font-weight: 700;}
+  p { margin: 0 0 14px; color: var(--ink); }
+  strong { color: var(--navy); font-weight: 600; }
+
+  .proof-note {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--navy);
+    padding: 16px 20px;
+    margin: 18px 0;
+    font-size: 15.5px;
+    color: var(--ink-soft);
+  }
+  .proof-note strong { color: var(--navy); }
+  .flag-note {
+    background: #fff4e0;
+    border: 1px dashed #b8862f;
+    color: #6b4a12;
+    padding: 14px 18px;
+    margin: 18px 0;
+    font-size: 14px;
+    border-radius: 3px;
+  }
+
+  .role-list { list-style: none; padding: 0; margin: 0; }
+  .role-list li {
+    padding: 12px 0 12px 22px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .role-list li:before {
+    content: "—";
+    position: absolute; left: 0; color: var(--bronze);
+  }
+  .role-list li:last-child { border-bottom: none; }
+
+  .city-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;
+    margin-top: 4px;
+  }
+  .city-grid a {
+    display: block; background: #fff; border: 1px solid var(--rule);
+    padding: 11px 14px; font-size: 14px; color: var(--navy);
+  }
+  .city-grid a:hover { border-color: var(--bronze); color: var(--bronze); }
+
+  .faq-item { border-bottom: 1px solid var(--rule); padding: 18px 0; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q { font-weight: 700; color: var(--navy); font-size: 17px; margin-bottom: 6px; }
+  .faq-a { color: var(--ink-soft); font-size: 15.5px; }
+
+  .compete-block { margin-bottom: 16px; }
+  .compete-block .label { font-weight: 700; color: var(--navy); }
+
+  .cta-band {
+    background: var(--navy-deep);
+    color: #f2ead9;
+    text-align: center;
+    padding: 46px 24px;
+    margin-top: 10px;
+  }
+  .cta-band h2 { color: #f5efe0; }
+  .cta-band p { color: #cfc4a3; font-size: 15.5px; max-width: 480px; margin: 0 auto 22px; }
+  .cta-button {
+    display: inline-block;
+    background: var(--bronze);
+    color: #1c1408;
+    font-weight: 700;
+    padding: 13px 30px;
+    border-radius: 3px;
+    border-bottom: none;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+  }
+  .cta-button:hover { background: var(--bronze-light); }
+  .cta-contact { margin-top: 16px; font-size: 13.5px; color: #a99f80; }
+  .cta-contact a { color: #cfc4a3; border-bottom: none; }
+
+  .related-links {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    margin-top: 4px;
+  }
+  .related-links a {
+    display: block; background: #fff; border: 1px solid var(--rule);
+    padding: 12px 16px; font-size: 14.5px; border-bottom: 1px solid var(--rule);
+    color: var(--navy);
+  }
+  .related-links a:hover { border-color: var(--bronze); color: var(--bronze); }
+
+  footer {
+    text-align: center; padding: 26px; color: #9c9179; font-size: 12.5px;
+    background: var(--navy-deep);
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="monogram">GA</span>Arnold Executive Search</div>
+  <div class="topnav">
+    <a href="#">Practice Areas</a>
+    <a href="#">About Gaea</a>
+    <a href="#">Contact</a>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <a href="#">Home</a> &nbsp;/&nbsp; <span>Sales Recruiters</span>
+</div>
+
+<div class="hero">
+  <h1>Sales Recruiters</h1>
+  <p class="subhead">Contingent sales recruiting for quota-carrying talent and sales leadership, from SDR and AE hires through VP Sales and CRO mandates.</p>
+  <div class="direct-answer">
+    I recruit quota-carrying sales talent and sales leadership — SDRs, BDRs, account executives, sales directors, VP Sales, CROs, and sales engineers — for companies where a bad sales hire can cost a full quarter of pipeline. I focus the search on the real motion, market, and accountability of the seat.
+  </div>
+  <div class="badges">
+    <span class="badge">Contingent-First</span>
+    <span class="badge">No Up-Front Retainer</span>
+    <span class="badge">Twelve-Month Guarantee</span>
+  </div>
+  <div class="author-strip">
+    <img class="author-photo" src="gaea_arnold.jpg" alt="Gaea Arnold">
+    <div>
+      <div class="author-name">Gaea Arnold</div>
+      <div class="author-title">Executive Search Leader &amp; Founder, Arnold Executive Search</div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <div class="flag-note">
+    <strong>Draft note for final review:</strong> [PLACEHOLDER — confirm Gaea Arnold’s real bio, relevant sector background, and verified placement evidence before publication. This page intentionally contains no unverified personal credentials, tenure, client names, or placement history.]
+  </div>
+
+  <section>
+    <h2>Why sales hiring needs more than title matching</h2>
+    <p>A sales title says little about the motion behind it. The same account executive label can mean a different buyer, cycle, deal size, segment, technical burden, and level of ownership. I define the commercial environment first, then evaluate candidates against the role the business actually needs filled.</p>
+    <div class="flag-note">[PLACEHOLDER — Gaea’s verified sales-recruiting background, market focus, and placement evidence. Do not add revenue, attainment, client, or placement claims until they are confirmed.]</div>
+  </section>
+
+  <section>
+    <h2>Where this fits</h2>
+    <h3>SDR, BDR, and account executive searches</h3><p>For SMB, mid-market, and enterprise account executive roles, plus early-funnel talent that must operate in a specific sales motion.</p>
+    <h3>Sales leadership searches</h3><p>For sales directors, VP Sales, and CRO mandates where the leader must shape team execution as well as carry the business target.</p>
+    <h3>Sales engineering searches</h3><p>For sales engineers who must translate product and technical context into a credible commercial conversation.</p>
+    <div class="proof-note">
+      [PLACEHOLDER — real, verified evidence of Gaea’s relevant placements: role, seniority, organization type, and outcome. Do not publish client names, counts, tenure, or any achievement claim until confirmed.]
+    </div>
+  </section>
+
+  <section>
+    <h2>How I run a sales search</h2>
+    <p>I start by separating the title from the selling environment: buyer, segment, sales cycle, product complexity, territory, handoffs, and management expectations. I then use direct outreach and structured screening to test what a candidate actually owned. The result is a shortlist tied to the commercial brief, not a stack of broadly similar resumes.</p>
+  </section>
+
+  <section>
+    <h2>Markets covered</h2>
+    <p>Current city and topic pages for this hub:</p>
+    <div class="city-grid">
+      <a href="#">Sales Recruiters Austin →</a>
+      <a href="#">Sales Recruiters Boston →</a>
+      <a href="#">Sales Recruiters Chicago →</a>
+      <a href="#">Sales Recruiters Dallas →</a>
+      <a href="#">Sales Recruiters Denver →</a>
+      <a href="#">Sales Recruiters New York City →</a>
+      <a href="#">Sales Recruiters San Francisco →</a>
+      <a href="#">Sales Recruiters Seattle →</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">How do you evaluate a sales candidate’s real track record versus inflated quota claims?</div>
+      <div class="faq-a">I ask for the operating context behind any attainment claim: the segment, buyer, territory, sales cycle, starting conditions, handoffs, and what the candidate personally owned. A number without context does not show repeatability. The goal is to understand the candidate’s actual contribution and whether it maps to the sales motion you need.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What sales roles do you recruit?</div>
+      <div class="faq-a">This hub covers SDR and BDR roles, account executives across SMB, mid-market, and enterprise segments, sales directors, VP Sales and CRO mandates, and sales engineers. I calibrate the search to the actual commercial role because title overlap alone can hide major differences in buyer, cycle, product complexity, and responsibility.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you recruit individual contributors and leaders?</div>
+      <div class="faq-a">Yes. Individual-contributor and leadership searches require different evaluation criteria, but both begin with the commercial reality of the seat. For individual contributors, I focus on the motion and ownership. For leaders, I also assess how the candidate would shape execution, hiring, inspection, and cross-functional decisions.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Why use direct outreach for a sales search?</div>
+      <div class="faq-a">Strong sales candidates are often performing in an existing role and are not spending time in public applicant channels. Direct outreach creates a confidential first conversation about the mandate and the commercial environment. It also gives the search a better chance of reaching people whose experience is relevant but not actively marketed.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Who is Gaea Arnold?</div>
+      <div class="faq-a">[PLACEHOLDER — real bio sentence needed. Currently verified only as “Executive Search Leader and Founder, Arnold Executive Search.” A real biography must confirm her professional background, relevant practice focus, and any credentials before publication. No years-of-experience, affiliation, client, or placement claim will be published until verified.]</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Competitive positioning</h2>
+    <div class="compete-block">
+      <p><span class="label">Heidrick &amp; Struggles / Korn Ferry / Spencer Stuart</span> — retained engagements and longer process design can be appropriate for a global or board-critical mandate. They are not the only answer when a company needs a focused, contingent-first search to begin without an up-front retainer.</p>
+    </div>
+    <p>I run exclusive contingent searches at retained-search execution standards — a different engagement model, not a boutique imitation of the retained firms. I use direct outreach, clear calibration, and a twelve-month guarantee.</p>
+  </section>
+
+  <section>
+    <h2>Related decisions</h2>
+    <div class="related-links">
+      <a href="#">SDR vs. account executive hiring →</a>
+      <a href="#">Enterprise sales hiring →</a>
+      <a href="#">Sales leadership mandate design →</a>
+      <a href="#">Sales engineer search planning →</a>
+    </div>
+  </section>
+
+</main>
+
+<div class="cta-band">
+  <h2>Let’s talk about the seat you’re trying to fill</h2>
+  <p>30 minutes. No pitch deck — just the actual brief and whether this is a fit.</p>
+  <a href="#" class="cta-button">Schedule a 30-Minute Call</a>
+  <div class="cta-contact">[PLACEHOLDER email] &nbsp;·&nbsp; [PLACEHOLDER phone]</div>
+</div>
+
+<footer>Arnold Executive Search — Gaea Arnold, Executive Search Leader &amp; Founder</footer>
+
+</body>
+</html>

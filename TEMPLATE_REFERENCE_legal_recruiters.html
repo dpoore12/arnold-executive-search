@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Legal Recruiters — Arnold Executive Search</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #14213d;
+    --navy-deep: #0c1526;
+    --bronze: #a9762f;
+    --bronze-light: #c9924a;
+    --paper: #faf6ef;
+    --paper-warm: #f2ead9;
+    --ink: #201c14;
+    --ink-soft: #4a4438;
+    --rule: #ddd2b8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Sans 3', sans-serif;
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  h1, h2, h3, .serif {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    color: var(--navy);
+    letter-spacing: 0.2px;
+  }
+  a { color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--bronze-light); }
+  a:hover { color: var(--bronze); }
+
+  .topbar {
+    background: var(--navy-deep);
+    color: #e9e2cf;
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+  }
+  .monogram {
+    width: 34px; height: 34px;
+    border: 1.5px solid var(--bronze-light);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    color: var(--bronze-light);
+    font-size: 15px;
+    margin-right: 10px;
+  }
+  .brand { display: flex; align-items: center; color: #f5efe0; font-size: 15px; letter-spacing: 0.5px;}
+  .topnav a { color: #cfc4a3; border-bottom: none; margin-left: 24px; font-size: 14px; }
+  .topnav a:hover { color: var(--bronze-light); }
+
+  .breadcrumb {
+    max-width: 860px; margin: 22px auto 0; padding: 0 24px;
+    font-size: 13px; color: var(--ink-soft);
+  }
+  .breadcrumb a { border-bottom: none; color: var(--ink-soft); }
+  .breadcrumb a:hover { color: var(--bronze); }
+
+  .hero {
+    max-width: 860px; margin: 0 auto; padding: 28px 24px 36px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero h1 { font-size: 42px; margin: 0 0 12px; line-height: 1.15; }
+  .hero .subhead {
+    font-size: 19px; color: var(--ink-soft); margin: 0 0 22px; max-width: 640px;
+  }
+  .direct-answer {
+    background: var(--paper-warm);
+    border-left: 3px solid var(--bronze);
+    padding: 18px 22px;
+    font-size: 16.5px;
+    color: var(--ink);
+    border-radius: 2px;
+  }
+  .badges { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge {
+    font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.6px;
+    color: var(--navy); border: 1px solid var(--bronze-light);
+    padding: 5px 11px; border-radius: 20px; background: #fff;
+  }
+
+  .author-strip {
+    display: flex; align-items: center; gap: 14px;
+    margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--rule);
+  }
+  .author-photo {
+    width: 56px; height: 56px; border-radius: 50%;
+    object-fit: cover; border: 2px solid var(--bronze-light);
+  }
+  .author-name { font-weight: 700; color: var(--navy); font-size: 15.5px; }
+  .author-title { color: var(--ink-soft); font-size: 13.5px; }
+
+  main { max-width: 860px; margin: 0 auto; padding: 8px 24px 20px; }
+  section { padding: 34px 0; border-bottom: 1px solid var(--rule); }
+  section:last-of-type { border-bottom: none; }
+  h2 { font-size: 27px; margin: 0 0 16px; }
+  h3 { font-size: 19px; margin: 22px 0 8px; color: var(--ink); font-family: 'Source Sans 3', sans-serif; font-weight: 700;}
+  p { margin: 0 0 14px; color: var(--ink); }
+  strong { color: var(--navy); font-weight: 600; }
+
+  .proof-note {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--navy);
+    padding: 16px 20px;
+    margin: 18px 0;
+    font-size: 15.5px;
+    color: var(--ink-soft);
+  }
+  .proof-note strong { color: var(--navy); }
+  .flag-note {
+    background: #fff4e0;
+    border: 1px dashed #b8862f;
+    color: #6b4a12;
+    padding: 14px 18px;
+    margin: 18px 0;
+    font-size: 14px;
+    border-radius: 3px;
+  }
+
+  .role-list { list-style: none; padding: 0; margin: 0; }
+  .role-list li {
+    padding: 12px 0 12px 22px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .role-list li:before {
+    content: "—";
+    position: absolute; left: 0; color: var(--bronze);
+  }
+  .role-list li:last-child { border-bottom: none; }
+
+  .city-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;
+    margin-top: 4px;
+  }
+  .city-grid a {
+    display: block; background: #fff; border: 1px solid var(--rule);
+    padding: 11px 14px; font-size: 14px; color: var(--navy);
+  }
+  .city-grid a:hover { border-color: var(--bronze); color: var(--bronze); }
+
+  .faq-item { border-bottom: 1px solid var(--rule); padding: 18px 0; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q { font-weight: 700; color: var(--navy); font-size: 17px; margin-bottom: 6px; }
+  .faq-a { color: var(--ink-soft); font-size: 15.5px; }
+
+  .compete-block { margin-bottom: 16px; }
+  .compete-block .label { font-weight: 700; color: var(--navy); }
+
+  .cta-band {
+    background: var(--navy-deep);
+    color: #f2ead9;
+    text-align: center;
+    padding: 46px 24px;
+    margin-top: 10px;
+  }
+  .cta-band h2 { color: #f5efe0; }
+  .cta-band p { color: #cfc4a3; font-size: 15.5px; max-width: 480px; margin: 0 auto 22px; }
+  .cta-button {
+    display: inline-block;
+    background: var(--bronze);
+    color: #1c1408;
+    font-weight: 700;
+    padding: 13px 30px;
+    border-radius: 3px;
+    border-bottom: none;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+  }
+  .cta-button:hover { background: var(--bronze-light); }
+  .cta-contact { margin-top: 16px; font-size: 13.5px; color: #a99f80; }
+  .cta-contact a { color: #cfc4a3; border-bottom: none; }
+
+  .related-links {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    margin-top: 4px;
+  }
+  .related-links a {
+    display: block; background: #fff; border: 1px solid var(--rule);
+    padding: 12px 16px; font-size: 14.5px; border-bottom: 1px solid var(--rule);
+    color: var(--navy);
+  }
+  .related-links a:hover { border-color: var(--bronze); color: var(--bronze); }
+
+  footer {
+    text-align: center; padding: 26px; color: #9c9179; font-size: 12.5px;
+    background: var(--navy-deep);
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="monogram">GA</span>Arnold Executive Search</div>
+  <div class="topnav">
+    <a href="#">Practice Areas</a>
+    <a href="#">About Gaea</a>
+    <a href="#">Contact</a>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <a href="#">Home</a> &nbsp;/&nbsp; <span>Legal Recruiters</span>
+</div>
+
+<div class="hero">
+  <h1>Legal Recruiters</h1>
+  <p class="subhead">Confidential, contingent legal search for law firms and in-house legal departments — attorneys, general counsel, and legal operations leadership.</p>
+  <div class="direct-answer">
+    I run confidential, contingent legal search for law firms hiring laterally and companies building in-house legal functions — attorneys, general counsel, deputy general counsel, and legal operations leadership. Contingent-first, no up-front retainer, twelve-month guarantee.
+  </div>
+  <div class="badges">
+    <span class="badge">Contingent-First</span>
+    <span class="badge">No Up-Front Retainer</span>
+    <span class="badge">12-Month Guarantee</span>
+  </div>
+  <div class="author-strip">
+    <img class="author-photo" src="PHOTO_PLACEHOLDER_gaea_arnold.jpg" alt="Gaea Arnold">
+    <div>
+      <div class="author-name">Gaea Arnold</div>
+      <div class="author-title">Executive Search Leader &amp; Founder, Arnold Executive Search</div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <div class="flag-note">
+    <strong>Draft note for Dan:</strong> Sections below marked [PLACEHOLDER] need real input from Gaea before this goes live — I have no verified bio, tenure, sector background, or placement history for her beyond "Executive Search Leader and Founder," and I'm not inventing any of it. Content follows the exact structure of the existing Legal Recruiters Austin page so nothing here is freelanced format.
+  </div>
+
+  <section>
+    <h2>Why legal search is different from a generalist placement</h2>
+    <p>Law firms hiring laterally and companies building or scaling in-house legal functions both depend on reaching attorneys and general counsel who are almost never actively job-searching. I run confidential, contingent legal search — attorneys, general counsel, deputy general counsel, and legal operations leadership — using direct, discreet outreach, because the attorneys worth pursuing for a serious search are rarely browsing job boards.</p>
+    <p>[PLACEHOLDER — Gaea's specific background/sector focus within legal search: e.g. litigation vs. transactional vs. in-house, firm size range, geographic focus. Needs her real input, not invented.]</p>
+  </section>
+
+  <section>
+    <h2>Where this fits</h2>
+    <h3>Lateral partner and senior associate searches</h3>
+    <p>Where a firm needs a specific practice-area specialization or an attorney with an existing book of business, and the realistic candidate pool is a short, named list rather than an open market.</p>
+    <h3>General counsel and legal operations searches</h3>
+    <p>For companies building or expanding a legal function, where the seat needs to operate as both a legal expert and a business leader.</p>
+    <h3>Confidential searches</h3>
+    <p>Replacing a departing GC, building a legal function quietly ahead of an announcement, or approaching a partner at a competing firm — situations that require real discretion, not a posting-first process.</p>
+
+    <div class="proof-note">
+      [PLACEHOLDER — real placement proof for Gaea: roles placed, level, firm/company type and scale, shown without client names per the sitewide confidentiality standard. No proof block will be published until this is real and verified — nothing here is invented.]
+    </div>
+  </section>
+
+  <section>
+    <h2>How I run a legal search</h2>
+    <p>Every search starts with defining the real candidate universe for the specific practice area or seat, which is often narrower than a generic database pull would suggest. From there, outreach is direct and confidential, protecting the candidate's current position while assessing genuine fit against the mandate. The rest of the process — screening, interviews, negotiation, close — runs on contingent terms with a twelve-month guarantee.</p>
+  </section>
+
+  <section>
+    <h2>Markets covered</h2>
+    <p>City-specific legal search pages, each with the same contingent terms and confidentiality standard:</p>
+    <div class="city-grid">
+      <a href="#">Legal Recruiters Atlanta →</a>
+      <a href="#">Legal Recruiters Austin →</a>
+      <a href="#">Legal Recruiters Boston →</a>
+      <a href="#">Legal Recruiters Chicago →</a>
+      <a href="#">Legal Recruiters Washington DC →</a>
+      <a href="#">Legal Recruiters Houston →</a>
+      <a href="#">Legal Recruiters Miami →</a>
+      <a href="#">Legal Recruiters NYC →</a>
+      <a href="#">Legal Recruiters Philadelphia →</a>
+      <a href="#">Legal Recruiters San Francisco →</a>
+      <a href="#">Legal Recruiters Seattle →</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Frequently asked questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Do you work with law firms and in-house legal departments directly, or only remotely?</div>
+      <div class="faq-a">Both. Search runs the same way regardless of location — direct client contact, confidential candidate outreach, and market-specific knowledge of practice-area and in-house dynamics.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What legal roles do you place?</div>
+      <div class="faq-a">Lateral partners and senior associates with a specific practice-area specialization, general counsel, deputy general counsel, and legal operations leadership for companies hiring in-house legal talent.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do you protect candidate confidentiality?</div>
+      <div class="faq-a">Direct, discreet outreach is the default for every search, not an exception. Sitting attorneys and general counsel candidates are approached individually and confidentially — no public postings, no mass outreach that could reach their current employer.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What's the engagement model?</div>
+      <div class="faq-a">Contingent-first, no up-front retainer, twelve-month replacement guarantee.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Who is Gaea Arnold?</div>
+      <div class="faq-a">[PLACEHOLDER — real bio sentence needed. Currently verified only as "Executive Search Leader and Founder, Arnold Executive Search." No years-of-experience, credential, or affiliation claim will be published until confirmed.]</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Competitive positioning</h2>
+    <div class="compete-block">
+      <p><span class="label">Heidrick &amp; Struggles / Korn Ferry / Spencer Stuart</span> — Fortune 500 fee bands, retained engagements, and multi-month timelines. That is the right lane for a global GC or managing partner search. It is not the right lane for a firm or company that needs a contingent-first search moving in weeks, not quarters.</p>
+    </div>
+    <p>I run exclusive contingent searches at retained-search execution standards — not a boutique alternative to the retained giants, a different engagement model entirely. No up-front retainer, no multi-month intake process, and a twelve-month guarantee on every placement.</p>
+  </section>
+
+  <section>
+    <h2>Related decisions</h2>
+    <div class="related-links">
+      <a href="#">Lateral partner vs. senior associate search →</a>
+      <a href="#">General counsel vs. deputy GC hire →</a>
+      <a href="#">Building an in-house legal team from scratch →</a>
+      <a href="#">Confidential GC replacement search →</a>
+    </div>
+  </section>
+
+</main>
+
+<div class="cta-band">
+  <h2>Let's talk about the seat you're trying to fill</h2>
+  <p>30 minutes. No pitch deck, no retainer discussion — just the actual brief and whether this is a fit.</p>
+  <a href="#" class="cta-button">Schedule a 30-Minute Call</a>
+  <div class="cta-contact">[PLACEHOLDER email] &nbsp;·&nbsp; [PLACEHOLDER phone]</div>
+</div>
+
+<footer>Arnold Executive Search — Gaea Arnold, Executive Search Leader &amp; Founder</footer>
+
+</body>
+</html>

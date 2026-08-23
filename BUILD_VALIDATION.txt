@@ -1,0 +1,9 @@
+arnold_accounting-staffing.html: PASS; FAQs=5 [52, 46, 52, 52, 45]; css=True; markets=True; photo=True; contact=True; forbidden=[]; corporate_we=False; fee_amount_or_percent=False
+arnold_construction-staffing.html: PASS; FAQs=5 [51, 48, 47, 48, 45]; css=True; markets=True; photo=True; contact=True; forbidden=[]; corporate_we=False; fee_amount_or_percent=False
+arnold_executive-headhunters.html: PASS; FAQs=5 [51, 51, 51, 51, 45]; css=True; markets=True; photo=True; contact=True; forbidden=[]; corporate_we=False; fee_amount_or_percent=False
+arnold_executive-search-firms.html: PASS; FAQs=5 [50, 52, 48, 52, 45]; css=True; markets=True; photo=True; contact=True; forbidden=[]; corporate_we=False; fee_amount_or_percent=False
+arnold_healthcare-staffing.html: PASS; FAQs=5 [52, 49, 48, 49, 45]; css=True; markets=True; photo=True; contact=True; forbidden=[]; corporate_we=False; fee_amount_or_percent=False
+arnold_it-staffing.html: PASS; FAQs=5 [52, 51, 50, 50, 45]; css=True; markets=True; photo=True; contact=True; forbidden=[]; corporate_we=False; fee_amount_or_percent=False
+arnold_marketing-recruiters.html: PASS; FAQs=5 [52, 47, 48, 55, 45]; css=True; markets=True; photo=True; contact=True; forbidden=[]; corporate_we=False; fee_amount_or_percent=False
+arnold_retained-executive-search.html: PASS; FAQs=6 [51, 50, 55, 54, 56, 45]; css=True; markets=True; photo=True; contact=True; forbidden=[]; corporate_we=False; fee_amount_or_percent=False
+arnold_sales-recruiters.html: PASS; FAQs=5 [52, 49, 45, 52, 45]; css=True; markets=True; photo=True; contact=True; forbidden=[]; corporate_we=False; fee_amount_or_percent=False
