@@ -88,10 +88,34 @@ PHOTO_SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
 (OUT / "gaea_arnold.svg").write_text(PHOTO_SVG)
 
 
+# Scope questions the prototypes left as placeholders. Answered without
+# claiming a scope Gaea has not confirmed: the call settles it.
+SCOPE_FAQ = {
+    "Do you handle travel or contract nursing, or only permanent placement?":
+        "Say which you need in the brief and I will tell you plainly whether it is a fit before any "
+        "outreach starts. This page covers the hub’s stated scope — nursing staff, allied health, and "
+        "healthcare operations leadership — and I would rather confirm the engagement model for your "
+        "specific coverage need on the call than publish a blanket claim here.",
+    "Do you handle both W-2 staffing and 1099 or subcontractor placement?":
+        "Say which arrangement you need in the brief and I will tell you plainly whether it is a fit "
+        "before outreach starts. Employment structure changes the candidate market, the compliance "
+        "obligations, and the timeline, so I confirm it for the specific project on the call rather "
+        "than publish a blanket claim here.",
+}
+
+
 def strip_placeholders(s):
     """Remove every draft/proof block that carries [PLACEHOLDER ...] and swap the
     'Who is Gaea Arnold?' answer for the verified-only version."""
     s = re.sub(r'\s*<div class="flag-note">.*?</div>', "", s, flags=re.S)
+    # FAQ answers that were a placeholder flag-note are now empty: fill or drop
+    def _faq(m):
+        q = m.group(1)
+        a = SCOPE_FAQ.get(html.unescape(q))
+        return (m.group(0).replace('<div class="faq-a"></div>', f'<div class="faq-a">{a}</div>')
+                if a else "")
+    s = re.sub(r'\s*<div class="faq-item">\s*<div class="faq-q">(.*?)</div>\s*<div class="faq-a"></div>\s*</div>',
+               _faq, s, flags=re.S)
     s = re.sub(r'\s*<div class="proof-note">\s*\[PLACEHOLDER.*?</div>', "", s, flags=re.S)
     s = re.sub(r'(<div class="faq-q">Who is Gaea Arnold\?</div>\s*<div class="faq-a">).*?(</div>)',
                lambda m: m.group(1) + GAEA_FAQ + m.group(2), s, flags=re.S)
