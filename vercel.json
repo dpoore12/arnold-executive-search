@@ -1,0 +1,1 @@
+{"outputDirectory": "dist", "cleanUrls": true, "trailingSlash": true, "redirects": [{"source": "/legal-recruiters", "destination": "/", "permanent": true}, {"source": "/legal-recruiters/", "destination": "/", "permanent": true}]}
