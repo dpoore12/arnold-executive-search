@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<rect width="200" height="200" fill="#14213d"/>
+<circle cx="100" cy="100" r="72" fill="none" stroke="#c9924a" stroke-width="3"/>
+<text x="100" y="118" text-anchor="middle" font-family="Georgia, 'DM Serif Display', serif" font-size="58" fill="#c9924a">GA</text>
+</svg>

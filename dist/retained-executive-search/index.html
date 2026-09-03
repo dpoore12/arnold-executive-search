@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Retained Executive Search — Arnold Executive Search</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A clear guide to retained executive search, when it is the right option, and how it compares with my contingent-first default.">
+<link rel="canonical" href="https://arnoldsearch.com/retained-executive-search/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #14213d;
+    --navy-deep: #0c1526;
+    --bronze: #a9762f;
+    --bronze-light: #c9924a;
+    --paper: #faf6ef;
+    --paper-warm: #f2ead9;
+    --ink: #201c14;
+    --ink-soft: #4a4438;
+    --rule: #ddd2b8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Sans 3', sans-serif;
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  h1, h2, h3, .serif {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    color: var(--navy);
+    letter-spacing: 0.2px;
+  }
+  a { color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--bronze-light); }
+  a:hover { color: var(--bronze); }
+
+  .topbar {
+    background: var(--navy-deep);
+    color: #e9e2cf;
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+  }
+  .monogram {
+    width: 34px; height: 34px;
+    border: 1.5px solid var(--bronze-light);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    color: var(--bronze-light);
+    font-size: 15px;
+    margin-right: 10px;
+  }
+  .brand { display: flex; align-items: center; color: #f5efe0; font-size: 15px; letter-spacing: 0.5px;}
+  .topnav a { color: #cfc4a3; border-bottom: none; margin-left: 24px; font-size: 14px; }
+  .topnav a:hover { color: var(--bronze-light); }
+
+  .breadcrumb {
+    max-width: 860px; margin: 22px auto 0; padding: 0 24px;
+    font-size: 13px; color: var(--ink-soft);
+  }
+  .breadcrumb a { border-bottom: none; color: var(--ink-soft); }
+  .breadcrumb a:hover { color: var(--bronze); }
+
+  .hero {
+    max-width: 860px; margin: 0 auto; padding: 28px 24px 36px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero h1 { font-size: 42px; margin: 0 0 12px; line-height: 1.15; }
+  .hero .subhead {
+    font-size: 19px; color: var(--ink-soft); margin: 0 0 22px; max-width: 640px;
+  }
+  .direct-answer {
+    background: var(--paper-warm);
+    border-left: 3px solid var(--bronze);
+    padding: 18px 22px;
+    font-size: 16.5px;
+    color: var(--ink);
+    border-radius: 2px;
+  }
+  .badges { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge {
+    font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.6px;
+    color: var(--navy); border: 1px solid var(--bronze-light);
+    padding: 5px 11px; border-radius: 20px; background: #fff;
+  }
+
+  .author-strip {
+    display: flex; align-items: center; gap: 14px;
+    margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--rule);
+  }
+  .author-photo {
+    width: 56px; height: 56px; border-radius: 50%;
+    object-fit: cover; border: 2px solid var(--bronze-light);
+  }
+  .author-name { font-weight: 700; color: var(--navy); font-size: 15.5px; }
+  .author-title { color: var(--ink-soft); font-size: 13.5px; }
+
+  main { max-width: 860px; margin: 0 auto; padding: 8px 24px 20px; }
+  section { padding: 34px 0; border-bottom: 1px solid var(--rule); }
+  section:last-of-type { border-bottom: none; }
+  h2 { font-size: 27px; margin: 0 0 16px; }
+  h3 { font-size: 19px; margin: 22px 0 8px; color: var(--ink); font-family: 'Source Sans 3', sans-serif; font-weight: 700;}
+  p { margin: 0 0 14px; color: var(--ink); }
+  strong { color: var(--navy); font-weight: 600; }
+
+  .proof-note {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--navy);
+    padding: 16px 20px;
+    margin: 18px 0;
+    font-size: 15.5px;
+    color: var(--ink-soft);
+  }
+  .proof-note strong { color: var(--navy); }
+  .flag-note {
+    background: #fff4e0;
+    border: 1px dashed #b8862f;
+    color: #6b4a12;
+    padding: 14px 18px;
+    margin: 18px 0;
+    font-size: 14px;
+    border-radius: 3px;
+  }
+
+  .role-list { list-style: none; padding: 0; margin: 0; }
+  .role-list li {
+    padding: 12px 0 12px 22px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .role-list li:before {
+    content: "—";
+    position: absolute; left: 0; color: var(--bronze);
+  }
+  .role-list li:last-child { border-bottom: none; }
+
+  .city-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;
+    margin-top: 4px;
+  }
+  .city-grid a {
+    display: block; background: #fff; border: 1px solid var(--rule);
+    padding: 11px 14px; font-size: 14px; color: var(--navy);
+  }
+  .city-grid a:hover { border-color: var(--bronze); color: var(--bronze); }
+
+  .faq-item { border-bottom: 1px solid var(--rule); padding: 18px 0; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q { font-weight: 700; color: var(--navy); font-size: 17px; margin-bottom: 6px; }
+  .faq-a { color: var(--ink-soft); font-size: 15.5px; }
+
+  .compete-block { margin-bottom: 16px; }
+  .compete-block .label { font-weight: 700; color: var(--navy); }
+
+  .cta-band {
+    background: var(--navy-deep);
+    color: #f2ead9;
+    text-align: center;
+    padding: 46px 24px;
+    margin-top: 10px;
+  }
+  .cta-band h2 { color: #f5efe0; }
+  .cta-band p { color: #cfc4a3; font-size: 15.5px; max-width: 480px; margin: 0 auto 22px; }
+  .cta-button {
+    display: inline-block;
+    background: var(--bronze);
+    color: #1c1408;
+    font-weight: 700;
+    padding: 13px 30px;
+    border-radius: 3px;
+    border-bottom: none;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+  }
+  .cta-button:hover { background: var(--bronze-light); }
+  .cta-contact { margin-top: 16px; font-size: 13.5px; color: #a99f80; }
+  .cta-contact a { color: #cfc4a3; border-bottom: none; }
+
+  .related-links {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    margin-top: 4px;
+  }
+  .related-links a {
+    display: block; background: #fff; border: 1px solid var(--rule);
+    padding: 12px 16px; font-size: 14.5px; border-bottom: 1px solid var(--rule);
+    color: var(--navy);
+  }
+  .related-links a:hover { border-color: var(--bronze); color: var(--bronze); }
+
+  footer {
+    text-align: center; padding: 26px; color: #9c9179; font-size: 12.5px;
+    background: var(--navy-deep);
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="brand" href="/" style="border-bottom:none"><span class="monogram">GA</span>Arnold Executive Search</a>
+  <div class="topnav">
+    <a href="/#practice-areas">Practice Areas</a>
+    <a href="/#about">About Gaea</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <a href="/">Home</a> &nbsp;/&nbsp; <span>Retained Executive Search</span>
+</div>
+
+<div class="hero">
+  <h1>Retained Executive Search</h1>
+  <p class="subhead">A clear guide to retained executive search, when it is the right option, and how it compares with my contingent-first default.</p>
+  <div class="direct-answer">
+    I offer retained executive search as an option for board-critical mandates or multi-role founding-team searches, alongside my contingent-first default. The right model depends on the importance, complexity, confidentiality, and exclusivity required by the mandate — not on a one-size-fits-all process.
+  </div>
+  <div class="badges">
+    <span class="badge">Contingent-First</span>
+    <span class="badge">No Up-Front Retainer</span>
+    <span class="badge">Twelve-Month Guarantee</span>
+  </div>
+  <div class="author-strip">
+    <img class="author-photo" src="/gaea_arnold.svg" alt="Gaea Arnold">
+    <div>
+      <div class="author-name">Gaea Arnold</div>
+      <div class="author-title">Executive Search Leader &amp; Founder, Arnold Executive Search</div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <div class="flag-note">
+    <strong>Draft note for final review:</strong> [PLACEHOLDER — confirm Gaea Arnold’s real bio, relevant sector background, and verified placement evidence before publication. This page intentionally contains no unverified personal credentials, tenure, client names, or placement history.]
+  </div>
+
+  <section>
+    <h2>When retained executive search is the right call</h2>
+    <p>Retained search can be the right model when a board-critical mandate, a high-stakes leadership transition, or a multi-role founding-team build requires a dedicated, exclusive process. It is not automatically the right choice for every senior search. I compare the mandate’s urgency, complexity, candidate market, and governance needs before recommending a model.</p>
+    <div class="flag-note">[PLACEHOLDER — confirm Gaea’s verified retained-search experience and scope before publication. No retained mandate history, client example, or placement outcome is assumed.]</div>
+  </section>
+
+  <section>
+    <h2>Where this fits</h2>
+    <h3>Board-critical leadership mandates</h3><p>For searches where board involvement, succession, or the consequences of a missed leadership decision call for an intentionally dedicated process.</p>
+    <h3>Multi-role founding-team searches</h3><p>For a coordinated set of founding-team or early leadership hires where the work benefits from a shared market map and close calibration.</p>
+    <h3>Complex or highly confidential searches</h3><p>For mandates with a narrow candidate market, sensitive circumstances, or a need for sustained exclusivity and governance.</p>
+    <div class="proof-note">
+      [PLACEHOLDER — real, verified evidence of Gaea’s relevant placements: role, seniority, organization type, and outcome. Do not publish client names, counts, tenure, or any achievement claim until confirmed.]
+    </div>
+  </section>
+
+  <section>
+    <h2>How I run a retained executive search</h2>
+    <p>A retained search begins with a committed, exclusive mandate, a detailed role definition, and agreement on how the process will be governed. I build the candidate market, conduct direct outreach, calibrate the slate, and manage the process through decision and close. The model is designed for work that needs sustained attention and clear shared commitment.</p>
+  </section>
+
+  <section>
+    <h2>Contingent vs. retained — how I decide</h2>
+    <p>I use contingent-first as the default when the mandate can move through a focused, exclusive search without an up-front retainer. I recommend considering retained search when the role is board-critical, the search is unusually complex or confidential, or several founding-team roles need a coordinated process.</p>
+    <h3>Contingent-first</h3><p>Best suited to a defined executive mandate where the organization wants an exclusive, direct-outreach process that begins without an up-front retainer and carries a twelve-month guarantee.</p>
+    <h3>Retained</h3><p>Best suited to a mandate requiring a committed, exclusive process, deeper governance, and sustained attention across a complex leadership decision or multi-role build.</p>
+  </section>
+
+  <section>
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">When do you recommend retained over contingent?</div>
+      <div class="faq-a">I recommend considering retained when a mandate is board-critical, unusually complex, highly confidential, or part of a coordinated multi-role founding-team build. Those conditions can justify a dedicated, exclusive process with deeper governance. For a defined executive mandate that can move quickly, my contingent-first approach may be the more practical starting point.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What does a retained fee structure look like?</div>
+      <div class="faq-a">A retained model begins with an up-front commitment and an exclusive mandate. The engagement then follows defined checkpoints and agreed milestone billing as the search progresses. The exact structure should be discussed for the particular mandate. This page does not publish dollar amounts, percentages, retainer figures, or other fee details.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is retained search always more thorough?</div>
+      <div class="faq-a">No. Thoroughness comes from the clarity of the mandate, the quality of market mapping, direct outreach, calibration, and decision process. Retained search is useful when the assignment needs sustained, dedicated attention and governance. An exclusive contingent-first search can also be rigorous when the leadership brief is defined and the candidate market can be reached directly.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can a contingent-first search still be confidential?</div>
+      <div class="faq-a">Yes. Confidentiality depends on how the search is designed and conducted, not solely on the engagement model. I use direct, discreet outreach and agree on what can be shared at each stage. For a highly sensitive or board-critical mandate, I assess whether the additional commitment and governance of retained search is the better fit.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the first decision before choosing a search model?</div>
+      <div class="faq-a">The first decision is what the mandate actually requires: the role’s importance, complexity, confidentiality, candidate-market difficulty, and decision process. I use those conditions to compare contingent-first and retained approaches. The point is not to force a model onto every search; it is to choose a process that matches the risk and scope of the leadership decision.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Who is Gaea Arnold?</div>
+      <div class="faq-a">[PLACEHOLDER — real bio sentence needed. Currently verified only as “Executive Search Leader and Founder, Arnold Executive Search.” A real biography must confirm her professional background, relevant practice focus, and any credentials before publication. No years-of-experience, affiliation, client, or placement claim will be published until verified.]</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Competitive positioning</h2>
+    <div class="compete-block">
+      <p><span class="label">Heidrick &amp; Struggles / Korn Ferry / Spencer Stuart</span> — retained engagements and longer process design can be appropriate for a global or board-critical mandate. They are not the only answer when a company needs a focused, contingent-first search to begin without an up-front retainer.</p>
+    </div>
+    <p>I run exclusive contingent searches at retained-search execution standards — a different engagement model, not a boutique imitation of the retained firms. I use direct outreach, clear calibration, and a twelve-month guarantee.</p>
+  </section>
+
+  <section>
+    <h2>Related decisions</h2>
+    <div class="related-links">
+      <a href="#contact">Contingent-first executive search →</a>
+      <a href="#contact">Board-critical search planning →</a>
+      <a href="#contact">Founding-team leadership build →</a>
+      <a href="#contact">Confidential leadership mandate →</a>
+    </div>
+  </section>
+
+</main>
+
+<div class="cta-band" id="contact">
+  <h2>Let’s talk about the seat you’re trying to fill</h2>
+  <p>30 minutes. No pitch deck — just the actual brief and whether this is a fit.</p>
+  <a href="#contact" class="cta-button">Schedule a 30-Minute Call</a>
+  <div class="cta-contact">[PLACEHOLDER email] &nbsp;·&nbsp; [PLACEHOLDER phone]</div>
+</div>
+
+<footer>Arnold Executive Search — Gaea Arnold, Executive Search Leader &amp; Founder</footer>
+
+</body>
+</html>
