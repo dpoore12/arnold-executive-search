@@ -194,3 +194,6 @@
   .hub-card h3 { margin: 0 0 8px; font-size: 21px; }
   .hub-card p { margin: 0; font-size: 15px; color: var(--ink-soft); line-height: 1.5; }
   .hub-card .go { display: block; margin-top: 12px; font-size: 14px; color: var(--bronze); }
+  ol.role-list { counter-reset: step; }
+  ol.role-list li { padding-left: 30px; }
+  ol.role-list li:before { counter-increment: step; content: counter(step) "."; font-weight: 700; color: var(--bronze); }

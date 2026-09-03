@@ -38,6 +38,47 @@ HUBS = [
 ]
 KILLED = ["legal-recruiters"]
 
+# Search-facing <title> and meta description for the national gold pages,
+# shaped to the titles that hold page one for each term (checked Sep 2026).
+# Everything else keeps "<H1> — Arnold Executive Search" and its subhead.
+SEO = {
+    "retained-executive-search": (
+        "Retained Executive Search Firm & Guide | Arnold Executive Search",
+        "Retained executive search from a firm that also runs contingent-first: what retained means, how it works, how the structure differs, and when to choose it."),
+    "cfo-recruiters": (
+        "CFO Recruiters & CFO Executive Search | Arnold Executive Search",
+        "CFO recruiters for first-time, sponsor-backed, pre-IPO and confidential CFO searches. Contingent-first, direct outreach, twelve-month guarantee."),
+    "private-equity-search-firm": (
+        "Private Equity Search Firm | Portfolio CEO, CFO & COO Search",
+        "Private equity search firm for sponsors and portfolio companies: CEO, CFO, COO and the operators who deliver the plan. Contingent-first, no up-front retainer."),
+    "tech-executive-search-firm": (
+        "Tech Executive Search Firm | CTO, CIO & VP Engineering Search",
+        "Tech executive search firm for CTO, CIO, VP Engineering, CPO and CISO seats and full tech executive teams. Contingent-first, twelve-month guarantee."),
+    "startup-recruiters": (
+        "Startup Recruiters | Executive Search for Founder-Led Companies",
+        "Startup recruiters for your first VP Sales, VP Engineering, CFO and COO. Founder-paced executive search, no up-front retainer, twelve-month guarantee."),
+}
+
+# "Related decisions" on the older hubs pointed at #contact. Point them at real
+# hubs so every page feeds the national gold pages.
+RELATED = {
+    "executive-search-firms":  [("Retained executive search", "/retained-executive-search/"), ("CFO recruiters", "/cfo-recruiters/"), ("Private equity search firm", "/private-equity-search-firm/"), ("Tech executive search firm", "/tech-executive-search-firm/")],
+    "executive-headhunters":   [("Private equity search firm", "/private-equity-search-firm/"), ("CFO recruiters", "/cfo-recruiters/"), ("Tech executive search firm", "/tech-executive-search-firm/"), ("Retained executive search", "/retained-executive-search/")],
+    "sales-recruiters":        [("Startup recruiters", "/startup-recruiters/"), ("Tech executive search firm", "/tech-executive-search-firm/"), ("Executive search firms", "/executive-search-firms/"), ("Marketing recruiters", "/marketing-recruiters/")],
+    "marketing-recruiters":    [("Startup recruiters", "/startup-recruiters/"), ("Executive search firms", "/executive-search-firms/"), ("Sales recruiters", "/sales-recruiters/"), ("Tech executive search firm", "/tech-executive-search-firm/")],
+    "it-staffing":             [("Tech executive search firm", "/tech-executive-search-firm/"), ("Startup recruiters", "/startup-recruiters/"), ("Executive search firms", "/executive-search-firms/"), ("Accounting staffing", "/accounting-staffing/")],
+    "accounting-staffing":     [("CFO recruiters", "/cfo-recruiters/"), ("Private equity search firm", "/private-equity-search-firm/"), ("Retained executive search", "/retained-executive-search/"), ("Executive search firms", "/executive-search-firms/")],
+    "healthcare-staffing":     [("Executive search firms", "/executive-search-firms/"), ("Retained executive search", "/retained-executive-search/"), ("Executive headhunters", "/executive-headhunters/"), ("CFO recruiters", "/cfo-recruiters/")],
+    "construction-staffing":   [("Executive search firms", "/executive-search-firms/"), ("Executive headhunters", "/executive-headhunters/"), ("Retained executive search", "/retained-executive-search/"), ("Accounting staffing", "/accounting-staffing/")],
+}
+
+ORG = {"@type": "Organization", "name": "Arnold Executive Search", "url": DOMAIN + "/",
+       "founder": {"@type": "Person", "name": "Gaea Arnold", "jobTitle": "Executive Search Leader & Founder"}}
+
+
+def schema_tag(obj):
+    return '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + "</script>"
+
 GAEA_FAQ = ("Gaea Arnold is the Executive Search Leader and Founder of Arnold Executive Search. "
             "She personally runs every search on this site, from the intake brief through market "
             "mapping, direct outreach, shortlist calibration, and close. Every engagement is exclusive "
@@ -63,7 +104,7 @@ if OUT.exists():
 OUT.mkdir()
 
 # One shared stylesheet for the built site (identical CSS, one cacheable file)
-_tpl_css = re.search(r"<style>(.*?)</style>", (ROOT / "arnold_retained-executive-search.html").read_text(), re.S).group(1)
+_tpl_css = re.search(r"<style>(.*?)</style>", (ROOT / "TEMPLATE_REFERENCE_legal_recruiters.html").read_text(), re.S).group(1)
 HUB_GRID_CSS = """
   .hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; margin-top: 18px; }
   .hub-card { display: block; background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 20px 22px; border-bottom: 1px solid var(--rule); }
@@ -71,6 +112,9 @@ HUB_GRID_CSS = """
   .hub-card h3 { margin: 0 0 8px; font-size: 21px; }
   .hub-card p { margin: 0; font-size: 15px; color: var(--ink-soft); line-height: 1.5; }
   .hub-card .go { display: block; margin-top: 12px; font-size: 14px; color: var(--bronze); }
+  ol.role-list { counter-reset: step; }
+  ol.role-list li { padding-left: 30px; }
+  ol.role-list li:before { counter-increment: step; content: counter(step) "."; font-weight: 700; color: var(--bronze); }
 """
 (OUT / "style.css").write_text(_tpl_css.strip("\n") + "\n" + HUB_GRID_CSS.strip("\n") + "\n")
 STYLE_LINK = '<link rel="stylesheet" href="/style.css">'
@@ -130,13 +174,25 @@ for slug, fname in HUBS:
     subhead = re.search(r'<p class="subhead">(.*?)</p>', s, re.S).group(1).strip()
     hub_meta.append((slug, title, subhead))
 
-    desc = html.escape(re.sub(r"<[^>]+>", "", subhead), quote=True)
+    seo_title, seo_desc = SEO.get(slug, (None, None))
+    desc = html.escape(seo_desc or re.sub(r"<[^>]+>", "", subhead), quote=True)
+    if seo_title:
+        s = re.sub(r"<title>.*?</title>", f"<title>{html.escape(seo_title)}</title>", s, count=1, flags=re.S)
+    schema = schema_tag({"@context": "https://schema.org", "@graph": [
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": DOMAIN + "/"},
+            {"@type": "ListItem", "position": 2, "name": title, "item": f"{DOMAIN}/{slug}/"}]},
+        {"@type": "Service", "name": title, "serviceType": "Executive search", "url": f"{DOMAIN}/{slug}/",
+         "description": re.sub(r"<[^>]+>", "", seo_desc or subhead), "areaServed": "United States", "provider": ORG}]})
     s = s.replace(
         '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
         f'<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
         f'<meta name="description" content="{desc}">\n'
-        f'<link rel="canonical" href="{DOMAIN}/{slug}/">',
+        f'<link rel="canonical" href="{DOMAIN}/{slug}/">\n{schema}',
     )
+    if slug in RELATED:
+        links = "\n".join(f'      <a href="{href}">{t} →</a>' for t, href in RELATED[slug])
+        s = re.sub(r'(<div class="related-links">\n).*?(\n    </div>)', lambda m: m.group(1) + links + m.group(2), s, count=1, flags=re.S)
     s = re.sub(r'src="(PHOTO_PLACEHOLDER_)?gaea_arnold\.jpg"', 'src="/gaea_arnold.svg"', s)
     s = externalize_css(s)
 
@@ -170,8 +226,9 @@ head = head.replace("<title>Executive Search Firms — Arnold Executive Search</
 head = head.replace(
     '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
     '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
-    '<meta name="description" content="Arnold Executive Search — Gaea Arnold runs confidential, contingent executive search for companies hiring leadership: CFO and finance, private equity portfolio companies, technology, startups, sales, marketing, healthcare, accounting, IT, and construction. No up-front retainer, twelve-month guarantee.">\n'
-    f'<link rel="canonical" href="{DOMAIN}/">',
+    '<meta name="description" content="Contingent-first executive search run personally by Gaea Arnold: CFO, private equity, technology, startup and functional leadership. No up-front retainer.">\n'
+    f'<link rel="canonical" href="{DOMAIN}/">\n' + schema_tag({"@context": "https://schema.org", **ORG,
+        "description": "Confidential, contingent-first executive search and specialized recruiting run personally by Gaea Arnold."}),
 )
 head = externalize_css(head + "</head>").replace("</head>", "")
 
